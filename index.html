@@ -26,12 +26,13 @@
 </head>
 
 <body id="page-top">
-    <div class="offcanvas-btn" onClick="openCanvas()">
+    <div class="offcanvas-btn" onClick="toggleCanvas()">
         <i class="fa fa-comment" aria-hidden="true"></i>
     </div>
-    <aside class="offcanvas-aside">
+    <aside class="offcanvas-aside ">
 
         <!-- Contact -->
+        <button class="d-block btn btn-xl close-btn custom-btn align-self-start ml-2">Close</button>
         <section id="contact">
             <h4>Contact Me</h4>
             <form role="form" class="contact-me-form d-flex flex-column justify-content-center align-items-center">
@@ -47,7 +48,7 @@
                     <label for="msg-body">Message Body</label>
                     <textarea class=" msg-body form-control" cols="30" rows="10" placeholder="Type message text here"></textarea>
                 </div>
-                <button type="button" class="d-block submit-confirm btn btn-xl">Submit</button>
+                <button type="button" class="d-block submit-confirm custom-btn btn btn-xl">Submit</button>
             </form>
         </section>
 
@@ -72,7 +73,7 @@
                         <a class="nav-link js-scroll-trigger" href="#me">Me</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link js-scroll-trigger" onclick="toggleCanvas()" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>

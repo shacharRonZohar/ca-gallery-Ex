@@ -32,18 +32,18 @@ function renderProjs() {
 
 function setEventListeners() {
     $('.submit-confirm').click(submitForm)
+    $('.close-btn').click(toggleCanvas)
 }
 
 function submitForm() {
     const email = $('.e-mail').val()
     const subj = $('.subject').val()
-    var msgBody = $('.msg-body').val()
-    msgBody += `\n\n Sent from: ${email}`
-    console.log('msgBody', msgBody)
-    '    https://mail.google.com/mail/u/0/?fs=1&to=me@example.com&su=SUBJECT&body=BODY&bcc=someone.else@example.com&tf=cm'
-    const url = `https://mail.google.com/mail/u/0/?fs=1&to=ronzohar@gmail.com&su=${subj}&body=${msgBody}&tf=cm`
-    console.log('url', url)
 
+    // Don't know how to make it go down a line in the email through the URL,
+    // so it's not formatted correctly
+    var msgBody = `Sent From: ${email}        ` + $('.msg-body').val().trim()
+    const url = `https://mail.google.com/mail/u/0/?fs=1&to=RZShachar@gmail.com&su=${subj}&body=${msgBody}&tf=cm`
+    window.open(url, '_blank')
 }
 
 function setModal(ev) {
@@ -62,7 +62,7 @@ function setModal(ev) {
     })
 }
 
-// Returns an object with replacement funcs accodring to img or txt, val is optional
+// Returns an object with replacement funcs accodring to attr or txt, val is optional
 function getSetInsideParentFuncs() {
     return {
         attr: (parentSelec, itemSelec, attr, val = null) => $(`.${parentSelec}`).find(`.${itemSelec}`).attr(attr, val),
