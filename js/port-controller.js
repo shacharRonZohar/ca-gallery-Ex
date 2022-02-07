@@ -27,21 +27,33 @@ function renderProjs() {
                  <p class="text-muted">${proj.lables}</p>
              </div>
          </div>`
-        const $elCurrProj = $(currProjStr).click({ proj }, setModal)
+        const $elCurrProj = $(currProjStr).click(proj, setModal)
         return $elCurrProj
     }))
 }
 
 function setModal(ev) {
-    const itemOpts = ['name', 'title', 'desc', 'date']
-    const proj = ev.data.proj
-    console.log('proj', proj)
-    console.log('proj.name', proj.name)
-    itemOpts
-    const $elModal = $('.modal-body')
-        // console.log('$elModal', $elModal)
+    const itemOpts = ['name', 'title', 'img', 'desc', 'date', 'lables', 'url']
+    const proj = ev.data
+    const setInsideParentFuncs = getSetInsideParentFuncs()
     itemOpts.forEach(item => {
-        console.log('item', item)
-        setTextInsideParent('modal-body', item, proj[item])
+        var cellConts = proj[item]
+        if (item === 'img') return setInsideParentFuncs.attr('modal-body', 'item-img', 'src', `img/portfolio/${proj.id}.jpg`)
+        if (item === 'url') $('.check-it-btn').click(proj.url, gotoProjPage)
+
+        if (item === 'date') cellConts = formatTime(proj.date)
+        setInsideParentFuncs.txt('modal-body', item, cellConts)
     })
+}
+
+// Returns an object with replacement funcs accodring to img or txt, val is optional
+function getSetInsideParentFuncs() {
+    return {
+        attr: (parentSelec, itemSelec, attr, val = null) => $(`.${parentSelec}`).find(`.${itemSelec}`).attr(attr, val),
+        txt: (parentSelec, itemSelec, val = null) => $(`.${ parentSelec }`).find(`.${itemSelec}`).text(val)
+    }
+}
+
+function gotoProjPage(ev) {
+    window.open(ev.data)
 }
