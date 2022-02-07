@@ -860,6 +860,10 @@ fieldset[disabled] .btn-xl:hover {
     background-color: white;
 }
 
+.submit-confirm {
+    cursor: pointer;
+}
+
 
 /* reset bootstrap*/
 
