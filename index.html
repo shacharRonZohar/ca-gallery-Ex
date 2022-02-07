@@ -34,6 +34,16 @@
         <!-- Contact -->
         <section id="contact">
             <h4>Contact Me</h4>
+            <form class="contact-me-form">
+                <div class="e-mail mb-5">
+                    <label for="e-mail mb-3 ">Your E-mail </label>
+                    <input name="e-mail" type="txt" id="e-mail" placeholder="name@example.com" required />
+                </div>
+                <div class="subject mb-5 ">
+                    <label for="subject">Subject</label>
+                    <input name="subject" type="txt" id="subject" placeholder="Type subject here" required />
+                </div>
+            </form>
         </section>
 
     </aside>
@@ -152,8 +162,8 @@
                     <p class="text-muted">Fullstack Student</p>
                     <ul class="list-inline social-buttons">
                         <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-twitter"></i>
+                            <a href="https://github.com/shacharRonZohar/">
+                                <i class="fa fa-github"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
@@ -189,17 +199,17 @@
                 <div class="col-md-4 flex-align-center">
                     <ul class="list-inline social-buttons flex-align-center">
                         <li class="list-inline-item">
-                            <a href="#">
-                                <i class="fa fa-twitter"></i>
+                            <a href="https://github.com/shacharRonZohar/">
+                                <i class="fa fa-github"></i>
                             </a>
                         </li>
                         <li class="list-inline-item flex-align-center">
-                            <a href="#">
+                            <a href="https://www.facebook.com/shahar.rz">
                                 <i class="fa fa-facebook"></i>
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="#">
+                            <a href="https://www.linkedin.com/in/shachar-ron-zohar-6a1ab819a/">
                                 <i class="fa fa-linkedin"></i>
                             </a>
                         </li>
@@ -244,10 +254,12 @@
                                     <li>Published: <span class="date"></span></li>
                                     <li>Category: <span class="lables"></span></li>
                                 </ul>
-                                <button class="check-it-btn btn btn-primary mb-3">Check the project out!</button>
-                                <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fa fa-times"></i>
-                 Close Project</button>
+                                <div class="buttons d-flex flex-column">
+                                    <button class="check-it-btn btn btn-primary mb-3">Check the project out!</button>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                        <i class="fa fa-times"></i>
+                     Close Project</button>
+                                </div>
                                 <br>
                             </div>
                         </div>

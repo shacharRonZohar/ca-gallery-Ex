@@ -20,7 +20,7 @@ function renderProjs() {
                          <i class="fa fa-plus fa-3x"></i>
                      </div>
                  </div>
-                 <img class="img-fluid" src="img/portfolio/${proj.id}.jpg" alt="">
+                 <img class="img-fluid thumbnail" src="img/portfolio/${proj.id}.jpg" alt="">
              </a>
              <div class="item-caption">
                  <h4>${proj.name}</h4>
@@ -39,8 +39,10 @@ function setModal(ev) {
     itemOpts.forEach(item => {
         var cellConts = proj[item]
         if (item === 'img') return setInsideParentFuncs.attr('modal-body', 'item-img', 'src', `img/portfolio/${proj.id}.jpg`)
-        if (item === 'url') $('.check-it-btn').click(proj.url, gotoProjPage)
-
+        if (item === 'url') {
+            $('.check-it-btn').off('click')
+            $('.check-it-btn').click(proj.url, gotoProjPage)
+        }
         if (item === 'date') cellConts = formatTime(proj.date)
         setInsideParentFuncs.txt('modal-body', item, cellConts)
     })
