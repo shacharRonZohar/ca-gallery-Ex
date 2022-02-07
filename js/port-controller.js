@@ -4,14 +4,12 @@ $(initPage)
 
 function initPage() {
     renderProjs()
+    setEventListeners()
 }
 
 function renderProjs() {
     const projs = getProjs()
-
-    // console.log('projs', projs)
     const $elRow = $('.projs')
-        // console.log('$elRow', $elRow)
     $elRow.html(projs.map(proj => {
         const currProjStr = `<div class="col-md-4 col-sm-6 portfolio-item">
              <a class="item-link" data-toggle="modal" href="#portfolioModal">
@@ -30,6 +28,22 @@ function renderProjs() {
         const $elCurrProj = $(currProjStr).click(proj, setModal)
         return $elCurrProj
     }))
+}
+
+function setEventListeners() {
+    $('.submit-confirm').click(submitForm)
+}
+
+function submitForm() {
+    const email = $('.e-mail').val()
+    const subj = $('.subject').val()
+    var msgBody = $('.msg-body').val()
+    msgBody += `\n\n Sent from: ${email}`
+    console.log('msgBody', msgBody)
+    '    https://mail.google.com/mail/u/0/?fs=1&to=me@example.com&su=SUBJECT&body=BODY&bcc=someone.else@example.com&tf=cm'
+    const url = `https://mail.google.com/mail/u/0/?fs=1&to=ronzohar@gmail.com&su=${subj}&body=${msgBody}&tf=cm`
+    console.log('url', url)
+
 }
 
 function setModal(ev) {
@@ -57,5 +71,5 @@ function getSetInsideParentFuncs() {
 }
 
 function gotoProjPage(ev) {
-    window.open(ev.data)
+    window.open(ev.data, '_blank')
 }
