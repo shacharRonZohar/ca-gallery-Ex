@@ -9,7 +9,6 @@
             // if (target.id === 'contact') return openCanvas()
             target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
             if (target.length) {
-                console.log('target', target)
                 $('html, body').animate({
                     scrollTop: (target.offset().top)
                 }, 1000, "easeInOutExpo");

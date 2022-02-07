@@ -66,7 +66,9 @@ const PROJS = [{
 }]
 
 function getProjs() {
-    return PROJS
+    const projs = JSON.parse(JSON.stringify(PROJS))
+    return projs
+
 }
 
 function getProj(id) {
