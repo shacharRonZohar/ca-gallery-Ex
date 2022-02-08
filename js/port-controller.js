@@ -54,8 +54,7 @@ function setModal(ev) {
         var cellConts = proj[item]
         if (item === 'img') return setInsideParentFuncs.attr('modal-body', 'item-img', 'src', `img/portfolio/${proj.id}.jpg`)
         if (item === 'url') {
-            $('.check-it-btn').off('click')
-            $('.check-it-btn').click(proj.url, gotoProjPage)
+            $('.check-it-btn').one('click', proj.url, gotoProjPage)
         }
         if (item === 'date') cellConts = formatTime(proj.date)
         setInsideParentFuncs.txt('modal-body', item, cellConts)
